@@ -46,20 +46,20 @@ puts "Dumping web server headers: ".bold.gray.bg_red
 #begin list of URL's to check
 list = [
  # VPN Checks
- "/+CSCOE+/logon.html",
- "/vpn/",
- "/oaam_server/oamLoginPage.jsp",
-  "/login/",
-  "/admin/",
-  "/upload/",
-  "/controlpanel/",
+ '/+CSCOE+/logon.html',
+ '/vpn/',
+ '/oaam_server/oamLoginPage.jsp',
+ '/login/',
+ '/admin/',
+ '/upload/',
+ '/controlpanel/',
 # OWA
- "/exchweb/bin/auth/owalogon.asp",
-  "/exchweb/bin/auth/owaauth.dll", #OWA 2003
-  "/owa/auth/owaauth.dll", #OWA2007
-  "/owa/auth.owa", #OWA 2010
-  "/owa/auth.owa", # OWA 2013
-  "/exchange/", # check for OWA redirect
+ '/exchweb/bin/auth/owalogon.asp',
+  '/exchweb/bin/auth/owaauth.dll', #OWA 2003
+  '/owa/auth/owaauth.dll', #OWA2007
+  '/owa/auth.owa', #OWA 2010
+  '/owa/auth.owa', # OWA 2013
+  '/exchange/', # check for OWA redirect
 #tomcat
  '/robots.txt',
  '/admin',
@@ -295,27 +295,27 @@ list = [
  "/exchange/", # check for OWA redirect
 #SHAREPOINT 
  # Admin Page
-  "/_vti_adm/Admin.asmx",
+  '/_vti_adm/Admin.asmx',
   # ASMX Files
-  "/_vti_bin/copy.asmx",
-  "/_vti_bin/permissions.asmx",
-  "/_vti_bin/lists.asmx",
-  "/_vti_bin/sites.asmx",
-  "/_vti_bin/alerts.asmx",
-  "/_vti_bin/authentication.asmx",
-  "/_vti_bin/forms.asmx",
-  "/_vti_bin/meetings.asmx",
-  "/_vti_bin/imaging.asmx",
-  "/_vti_bin/people.asmx",
-  "/_vti_bin/versions.asmx",
-  "/_vti_bin/search.asmx",
-  "/_vti_bin/webs.asmx ",
-  "/_vti_bin/usergroup.asmx ",
-  "/_vti_bin/dws.asmx",
-  "/_vti_bin/DspSts.asmx",
-  "/_vti_bin/sharepointemailws.asmx",
-  "/_vti_bin/sitedata.asmx",
-  "/_vti_bin/webpartpages.asmx",
+  '/_vti_bin/copy.asmx',
+  '/_vti_bin/permissions.asmx',
+  '/_vti_bin/lists.asmx',
+  '/_vti_bin/sites.asmx',
+  '/_vti_bin/alerts.asmx',
+  '/_vti_bin/authentication.asmx',
+  '/_vti_bin/forms.asmx',
+  '/_vti_bin/meetings.asmx',
+  '/_vti_bin/imaging.asmx',
+  '/_vti_bin/people.asmx',
+  '/_vti_bin/versions.asmx',
+  '/_vti_bin/search.asmx',
+  '/_vti_bin/webs.asmx',
+  '/_vti_bin/usergroup.asmx',
+  '/_vti_bin/dws.asmx',
+  '/_vti_bin/DspSts.asmx',
+  '/_vti_bin/sharepointemailws.asmx',
+  '/_vti_bin/sitedata.asmx',
+  '/_vti_bin/webpartpages.asmx',
   # WSDL File Names:
   "/_vti_bin/permissions.asmx?WSDL",
   "/_vti_bin/copy.asmx?WSDL",
