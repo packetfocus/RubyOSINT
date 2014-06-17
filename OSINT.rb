@@ -2,6 +2,7 @@
 # -----------------------------------------------------------------------------
 # URL checker will perform OSINT using static URLs for known internet facing app
 # -----------------------------------------------------------------------------
+# RubyOSINT v1
 require 'uri'
 require 'net/http'
 require "net/https"
@@ -54,8 +55,6 @@ list = [
  "/+CSCOE+/logon.html",
  "/vpn/",
  "/oaam_server/oamLoginPage.jsp",
-
-
   "/login/",
   "/admin/",
   "/upload/",
@@ -67,13 +66,10 @@ list = [
   "/owa/auth.owa", #OWA 2010
   "/owa/auth.owa", # OWA 2013
   "/exchange/", # check for OWA redirect
-
-
-
 #tomcat
  '/robots.txt',
-                                '/admin',
-                                '/admin/',
+ '/admin',
+ '/admin/',
                                 '/crossdomain.xml',
                                 '/sitemap.xml',
                                 '/examples',
