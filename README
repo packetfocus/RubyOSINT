@@ -1,0 +1,12 @@
+RubyOSINT v1
+
+Desc: This is a simple ruby based tool used for OSINT/PenTesting an application. The first version has static URL entries that are commonly attacked (PHPMyAdmin, VPN, Email, Citrix, etc.
+
+Usage: OSINT.rb
+Enter the base URL to be attacked at the prompt. MUST enter http:// or https:// or it will error out.
+
+Plans:
+Add CLI arguments
+add files to hold the URLs 
+Clean up the code
+
