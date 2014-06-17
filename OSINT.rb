@@ -7,7 +7,6 @@ require 'uri'
 require 'net/http'
 require "net/https"
 #require 'colorize'
-#edit check
 class String
 def black;          "\033[30m#{self}\033[0m" end
 def red;            "\033[31m#{self}\033[0m" end
@@ -28,7 +27,6 @@ def bg_gray;        "\033[47m#{self}\033[0m" end
 def bold;           "\033[1m#{self}\033[22m" end
 def reverse_color;  "\033[7m#{self}\033[27m" end
 end
-
 # -----------------------------------------------------------------------------
 puts "Enter the Site to be tested"
 site = gets.chomp
@@ -139,198 +137,162 @@ list = [
 '/.svn::$INDEX_ALLOCATION/entries',     #exposed svn entries nginx bypass
 '/.svn./entries',       #exposed svn entries nginx bypass
 '/CVS/Entries',         #Exposed cvs entries
+# admin page checks
 '/admin/index.jsp',
 '/admin/index.html',
 '/admin/index.php',
-                                '/admin/index.asp',
-                                '/admin/index.aspx',
-                                '/admin/',
-                                '/admin',
-                                '/_admin',
-                                '/Administration',
+'/admin/index.asp',
+'/admin/index.aspx',
+'/admin/',
+'/admin',
+'/_admin',
+'/Administration',
 '/login',
-                                '/admin1.php',
-                                '/admin.php',
-                                '/admin.html',
-                                '/admin1.php',
-                                '/admin1.html',
-                                '/login.php',
-                                '/admin/cp.php',
-                                '/cp.php',
-                                '/administrator/index.php',
-                                '/administrator/index.html',
-                                '/administartor',
-                                '/admin.login',
-                                '/administrator/login.php',
-                                '/administrator/login.html',
-                                '/names.nsf',   #lotus domino
-                                '/auth.html', #sonicwall SSL VPN
-                                '/crowd/services', #/scanner/http/atlassian_crowd_fileaccess.rb
-                                '/owa/auth/logon.aspx', #OWA
-                                '/exchange/', #owa
-                                '/axis2/services/listServices', #scanner/http/axis_local_file_include.rb
-                                '/axis2/axis2-admin/login',     #scanner/http/axis_login.rb
-                                '/axis2/axis2-web/HappyAxis.jsp',       #axis
-                                '/cgi-mod/view_help.cgi',       #scanner/http/barracuda_directory_traversal.rb
-                                '/bitweaver/',  #scanner/http/bitweaver_overlay_type_traversal.rb
-                                '/clansphere_2011.3/index.php', #scanner/http/clansphere_traversal.rb
-                                '/data/login',  #scanner/http/dell_idrac.rb
-                                '/WorkArea/login.aspx',         #scanner/http/ektron_cms400net.rb
-                                '/_vti_inf.html', #scanner/http/frontpage_login.rb
-                                '/en-US/account/login', #scanner/http/splunk_web_login.rb
-                                '/trace.axd',   #scanner/http/trace_axd.rb
-                                '/cpqlogin.htm', #CompaqHTTPServer
-                                '/hp/device/this.LCDispatcher', #HP Printer
-                                '/hmstat.htm', #Xerox priner
-                                '/SoundBridgeStatus.html', #roku
-                                '/eng/start/StatPtrGen.htm', #Kyocera printer
-                                '/cab/top.shtml',       #cannon printer
-                                '/DWREasyAjax/dwr/index.html',  #java servlets common from fuzzdb
-                                '/dwr/index.html',      #java servlets common from fuzzdb
-                                '/dwr/engine.js',       #java servlets common from fuzzdb
-                                '/CFIDE/administrator/index.cfm', #coldfusion admin interface
-                                '/jsp-examples',        #tomcat
-  '/manager',     #tomcat
-                                '/manager/',    #tomcat
-                                '/manager/deploy?path=foo',     #tomcat
-                                '/manager/html',        #tomcat
-                                '/manager/html/',       #tomcat
-                                '/manager/status',      #tomcat
-                                '/manager/status/',     #tomcat
-                                '/servlet/default/',    #tomcat
-                                '/.htaccess',   #apache
-                                '/.htaccess.bak',
-                                '/.htpasswd',
-                                '/.meta',
-                                '/.web',
-                                '/apache/logs/access.log',
-                                '/apache/logs/access_log',
-                                '/apache/logs/error.log',
-                                '/apache/logs/error_log',
-                                '/httpd/logs/access.log',
-                                '/httpd/logs/access_log',
-                                '/httpd/logs/error.log',
-                                '/httpd/logs/error_log',
-                                '/logs/access.log',
-                                '/logs/access.log',
-                                '/logs/error.log',
-                                '/logs/error_log',
-                                '/access_log',
-                                '/cgi',
-                                '/cgi-bin',
-                                '/cgi-pub',
-                                '/cgi-script',
-                                '/dummy',
-                                '/error',
-                                '/error_log',
-                                '/htdocs',
-                                '/httpd',
-                                '/httpd.pid',
-                                '/icons',
-                                '/index.html',
-                                '/logs',
-                                '/manual',
-                                '/phf',
-                                '/php',
-  '/printenv',
-                                '/server-info',
-                                '/server-status',
-                                '/status',
-                                '/test-cgi',
-                                '/tmp',
-                                '/user',
-                                '/~bin',
-                                '/~ftp',
-                                '/~nobody',
-                                '/~root',
-                                '/xampp/',      #apache
-                                '/dashboard',
-                                '/index.php/login',
-                                '/AdaptCMS/admin.php', #AdaptCMS Lite
-                                '/port/crx',            #adobe CQ5
-                                '/port/system/console',
-                                '/alfresco/service/api/login?u=&pw=',   #alfresco
-                                '/default/live/user.html',      #apache Lenya
-                                '/iw/tsadmin',  #autonom Intetwoven Teamsite CMS
-                                '/bedita-app/admin',    #BEdita
-                                '/blosxom/blogs/admin', #blosxom
-                                '/login.act',   #cascade server
-                                '/dokuwiki?do=login',   #dokuwiki
-                                '/dotclear/admin/',     #dotclear
-                                '/cms',
-                                '/dynpg',       #DynPG
-                                '/e107_admin/admin.php?view.all',       #e107
-                                '/perl/users/home',     #Eprints
-                                '/escenic/',    #escenic Content Engine
-                                '/cms',
-                                '/joomla/administrator',
-                                '/jumbo/loginpage.php', #jumbo
-                                '/CMSSiteManager',      #kentico CMS
-                                '/knowledgetree/',      #knowledge tree Comm Edition
-                                '/logicaldoc/webdav/store',     #logicalDOC
-                                '/magnoliaAuthor/.magnolia',    #magnolia
-                                '/midgard',     #migard
-                                '/Secure/Login.aspx',   #mojo portal
-                                '/_mt/mt.cgi',  #movable type
-                                '/nucleus/',    #nucleus
-                                '/adminzone',   #ocportal
-                                '/opencms/opencms/system/login/',       #opencms
-                                '/OpenKM',      #openKM
-                                '/console',
-                                '/papaya/', #papaya CMS
-                                '/nuke/admin.php',      #php-nuke
-                                '/phpwiki/admin.php',   #phpwiki
-                               # '/?command=PULogin',    #Pier
-                                '/pivotx',
-                                '/admin939',    #prestashop
-                                '/processwire/',        #processwire
-                                '/pulsepro/',   #pulse CMS
-                                '/ravennuke230/admin.php',      #ravennuke CMS
-                                '/refinery',    #refirery CMS
-                                '/CFIDE/administrator/index.cfm',       #coldfusion
-                               # '/?RVGET_document=System+Management',   #renovationsCMS
-                                '/serendipity/serendipity_admin.php',   #serendipity
-                                '/Sitefinity/LoginPages/LoginForm',     #sitefinity CMD
-                                '/_edit',       #squiz cms
-                                '/index.php?url=session',       #TangoCMS
-                                '/session',     #tangoCMS
-                                '/telligent_evolution', #telligent community
-                                '/textpattern/index.php',
-                                '/textpattern/',        #textpattern
-                                '/tiki/tiki-login_scr.php',     #tiki wiki CMS
-                                '/cgi-bin/login',       #TWiki
-                                '/typo3',       #typo3
-                                '/umbraco/login.aspx',  #Umbraco
-                                '/wp-admin/',   #wordpress
-                                '/yanel/',      #yanel
-                                '/robohelp/server',     #adobe robohelp
-                                '/resin-admin',
-                                '/resin-admin/status.php',
-                                '/resin-doc',
-                                '/resin-doc/',
-                                '/ckeditor/config.js', #CKeditor
-                                '/cgi-bin/mj_wwwusr/domain=domain?user=&passw=&func=help&extra=', #majordomo directory traversal
-
-
+'/admin1.php',
+'/admin.php',
+'/admin.html',
+'/admin1.php',
+'/admin1.html',
+'/login.php',
+'/admin/cp.php',
+'/cp.php',
+'/administrator/index.php',
+'/administrator/index.html',
+'/administartor',
+'/admin.login',
+'/administrator/login.php',
+'/administrator/login.html',
+'/names.nsf',   #lotus domino
+'/auth.html', #sonicwall SSL VPN
+'/crowd/services', #/scanner/http/atlassian_crowd_fileaccess.rb
+'/owa/auth/logon.aspx', #OWA
+'/exchange/', #owa
+'/axis2/services/listServices', #scanner/http/axis_local_file_include.rb
+'/axis2/axis2-admin/login',     #scanner/http/axis_login.rb
+'/axis2/axis2-web/HappyAxis.jsp',       #axis
+'/cgi-mod/view_help.cgi',       #scanner/http/barracuda_directory_traversal.rb
+'/bitweaver/',  #scanner/http/bitweaver_overlay_type_traversal.rb
+'/clansphere_2011.3/index.php', #scanner/http/clansphere_traversal.rb
+'/data/login',  #scanner/http/dell_idrac.rb
+'/WorkArea/login.aspx',         #scanner/http/ektron_cms400net.rb
+'/_vti_inf.html', #scanner/http/frontpage_login.rb
+'/en-US/account/login', #scanner/http/splunk_web_login.rb
+'/trace.axd',   #scanner/http/trace_axd.rb
+'/cpqlogin.htm', #CompaqHTTPServer
+'/hp/device/this.LCDispatcher', #HP Printer
+'/hmstat.htm', #Xerox priner
+'/SoundBridgeStatus.html', #roku
+'/eng/start/StatPtrGen.htm', #Kyocera printer
+'/cab/top.shtml',       #cannon printer
+'/DWREasyAjax/dwr/index.html',  #java servlets common from fuzzdb
+'/dwr/index.html',      #java servlets common from fuzzdb
+'/dwr/engine.js',       #java servlets common from fuzzdb
+'/CFIDE/administrator/index.cfm', #coldfusion admin interface
+'/jsp-examples',        #tomcat
+'/manager',     #tomcat
+'/manager/',    #tomcat
+'/manager/deploy?path=foo',     #tomcat
+'/manager/html',        #tomcat
+'/manager/html/',       #tomcat
+'/manager/status',      #tomcat
+'/manager/status/',     #tomcat
+'/servlet/default/',    #tomcat
+#Apache
+'/.htaccess',   #apache
+'/.htaccess.bak',
+'/.htpasswd',
+'/.meta',
+'/.web',
+'/apache/logs/access.log',
+'/apache/logs/access_log',
+'/apache/logs/error.log',
+'/apache/logs/error_log',
+'/httpd/logs/access.log',
+'/httpd/logs/access_log',
+'/httpd/logs/error.log',
+'/httpd/logs/error_log',
+'/logs/access.log',
+'/logs/access.log',
+'/logs/error.log',
+'/logs/error_log',
+'/access_log',
+'/cgi',
+'/cgi-bin',
+'/cgi-pub',
+'/cgi-script',
+'/dummy',
+'/error',
+'/error_log',
+'/htdocs',
+'/httpd',
+'/httpd.pid',
+'/icons',
+'/index.html',
+'/logs',
+'/manual',
+'/phf',
+'/php',
+'/printenv',
+'/server-info',
+'/server-status',
+'/status',
+'/test-cgi',
+'/tmp',
+'/user',
+'/~bin',
+'/~ftp',
+'/~nobody',
+'/~root',
+'/xampp/',      #apache
+'/dashboard',
+'/index.php/login',
+'/AdaptCMS/admin.php', #AdaptCMS Lite
+'/port/crx',            #adobe CQ5
+'/port/system/console',
+'/alfresco/service/api/login?u=&pw=',   #alfresco
+'/default/live/user.html',      #apache Lenya
+'/iw/tsadmin',  #autonom Intetwoven Teamsite CMS
+'/bedita-app/admin',    #BEdita
+'/blosxom/blogs/admin', #blosxom
+'/login.act',   #cascade server
+'/dokuwiki?do=login',   #dokuwiki
+'/dotclear/admin/',     #dotclear
+'/cms',
+'/cms',
+'/joomla/administrator',
+'/Secure/Login.aspx',   #mojo portal
+'/adminzone',   #ocportal
+'/opencms/opencms/system/login/',       #opencms
+'/console',
+'/nuke/admin.php',      #php-nuke
+'/phpwiki/admin.php',   #phpwiki
+'/CFIDE/administrator/index.cfm',       #coldfusion
+'/_edit',       #squiz cms
+'/index.php?url=session',       #TangoCMS
+'/session',     #tangoCMS
+'/cgi-bin/login',       #TWiki
+'/wp-admin/',   #wordpress
+'/robohelp/server',     #adobe robohelp
+'/resin-admin',
+'/resin-admin/status.php',
+'/resin-doc',
+'/resin-doc/',
+'/cgi-bin/mj_wwwusr/domain=domain?user=&passw=&func=help&extra=', #majordomo directory traversal
 #citrix
 '/Citrix/MetFrame/',
-                                '/Citrix/MetaFrame/auth/login.aspx',
-                                '/Citrix/Xenapp',
-                                '/Citrix',
-                                '/Citrix/AccessPlatform',
-                                '/Citrix/AccessPlatform/auth',
-                                '/Citrix/AccessPlatform/media',
-
-
-
-
+'/Citrix/MetaFrame/auth/login.aspx',
+'/Citrix/Xenapp',
+'/Citrix',
+'/Citrix/AccessPlatform',
+'/Citrix/AccessPlatform/auth',
+'/Citrix/AccessPlatform/media',
 # OWA
  "/exchweb/bin/auth/owalogon.asp",
-  "/exchweb/bin/auth/owaauth.dll", #OWA 2003
-  "/owa/auth/owaauth.dll", #OWA2007
-  "/owa/auth.owa", #OWA 2010
-  "/owa/auth.owa", # OWA 2013
-  "/exchange/", # check for OWA redirect
+ "/exchweb/bin/auth/owaauth.dll", #OWA 2003
+ "/owa/auth/owaauth.dll", #OWA2007
+ "/owa/auth.owa", #OWA 2010
+ "/owa/auth.owa", # OWA 2013
+ "/exchange/", # check for OWA redirect
 #SHAREPOINT 
  # Admin Page
   "/_vti_adm/Admin.asmx",
@@ -374,106 +336,106 @@ list = [
   "/_vti_bin/sharepointemailws.asmx?WSDL ",
   "/_vti_bin/sitedata.asmx?WSDL ",
   "/_vti_bin/webpartpages.asmx",
-   '/allcomments.aspx',
-   '/allitems.aspx',
-   '/allposts.aspx',
-   'archive.aspx',
-   '/byauthor.aspx',
-   '/calendar.aspx',
-   '/_catalogs/',
-   '/_catalogs/lt/',
-   '/_catalogs/lt/forms/allitems.aspx',
-   '/_catalogs/lt/forms/dispform.aspx',
-   '/_catalogs/lt/forms/editform.aspx',
-   '/_catalogs/lt/forms/upload.aspx',
-   '/_catalogs/lt/forms/Allitems.aspx',
-   '/_catalogs/lt/forms/DispForm.aspx',
-   '/_catalogs/lt/forms/EditForm.aspx',
-   '/_catalogs/lt/forms/Upload.aspx',
-   '/_catalogs/lt/forms/_vti_cnf/allitems.aspx',
-   '/_catalogs/lt/forms/_vti_cnf/editform.aspx',
-   '/_catalogs/lt/forms/_vti_cnf/dispform.aspx',
-   '/_catalogs/lt/forms/_vti_cnf/upload.aspx',
-   '/_catalogs/lt/forms/_vti_cnf/AllItems.aspx',
-   '/_catalogs/lt/forms/_vti_cnf/EditForm.aspx',
-   '/_catalogs/lt/forms/_vti_cnf/DispForm.aspx',
-   '/_catalogs/lt/forms/_vti_cnf/Upload.aspx',
-   '/_catalogs/masterpage',
-   '/_catalogs/masterpage/Forms/AllItems.aspx',
-   '/_catalogs/wp/',
-    '/_catalogs/wp/mscontenteditor.dwp',
-                                '/_catalogs/wp/msimage.dwp',
-                                '/_catalogs/wp/msmembers.dwp',
-                                '/_catalogs/wp/mspageviewer.dwp',
-                                '/_catalogs/wp/mssimpleform.dwp',
-                                '/_catalogs/wp/msxml.dwp',
-                                '/_catalogs/wp/_vti_cnf/mscontenteditor.dwp',
-                                '/_catalogs/wp/_vti_cnf/msimage.dwp',
-                                '/_catalogs/wp/_vti_cnf/msmembers.dwp',
-                                '/_catalogs/wp/_vti_cnf/mspageviewer.dwp',
-                                '/_catalogs/wp/_vti_cnf/mssimpleform.dwp',
-                                '/_catalogs/wp/_vti_cnf/msxml.dwp',
-                                '/_catalogs/wp/forms/',
-                                '/_catalogs/wp/Forms/AllItems.aspx',
-                                '/_catalogs/wp/Forms/dispform.aspx',
-                                '/_catalogs/wp/Forms/editform.aspx',
-                                '/_catalogs/wp/Forms/upload.aspx',
-                                '/_catalogs/wp/Forms/AllItems.aspx',
-                                '/_catalogs/wp/Forms/DispForm.aspx',
-                                '/_catalogs/wp/Forms/EditForm.aspx',
-                                '/_catalogs/wp/Forms/Upload.aspx',
-                                '/_catalogs/wp/forms/_vti_cnf/AllItems.aspx',
-                                '/_catalogs/wp/forms/_vti_cnf/dispform.aspx',
-                                '/_catalogs/wp/forms/_vti_cnf/editform.aspx',
-                                '/_catalogs/wp/forms/_vti_cnf/upload.aspx',
-                                '/_catalogs/wp/forms/_vti_cnf/AllItems.aspx',
-                                '/_catalogs/wp/forms/_vti_cnf/DispForm.aspx',
-                                '/_catalogs/wp/forms/_vti_cnf/EditForm.aspx',
- '/_catalogs/wp/forms/_vti_cnf/Upload.aspx',
-                                '/_catalogs/wt/',
-                                '/_catalogs/wt/Forms/allitems.aspx',
-                                '/_catalogs/wt/Forms/common.aspx',
-                                '/_catalogs/wt/Forms/dispform.aspx',
-                                '/_catalogs/wt/Forms/editform.aspx',
-                                '/_catalogs/wt/Forms/upload.aspx',
-                                '/_catalogs/wt/Forms/AllItems.aspx',
-                                '/_catalogs/wt/Forms/Common.aspx',
-                                '/_catalogs/wt/Forms/DispForm.aspx',
-                                '/_catalogs/wt/Forms/EditForm.aspx',
-                                '/_catalogs/wt/Forms/Upload.aspx',
-                                '/_catalogs/wt/Forms/_vti_cnf/allitems.aspx',
-                                '/_catalogs/wt/Forms/_vti_cnf/common.aspx',
-                                '/_catalogs/wt/Forms/_vti_cnf/dispform.aspx',
-                                '/_catalogs/wt/Forms/_vti_cnf/editform.aspx',
-                                '/_catalogs/wt/Forms/_vti_cnf/upload.aspx',
-                                '/_catalogs/wt/Forms/_vti_cnf/AllItems.aspx',
-                                '/_catalogs/wt/Forms/_vti_cnf/Common.aspx',
-                                '/_catalogs/wt/Forms/_vti_cnf/DispForm.aspx',
-                                '/_catalogs/wt/Forms/_vti_cnf/EditForm.aspx',
-                                '/_catalogs/wt/Forms/_vti_cnf/Upload.aspx',
-                                '/categories/allcategories.aspx',
-                                '/categories/SOMEOTHERDIR/allcategories.aspx',
-                                '/categories/viewcategory.aspx',
-                                '/default.aspx',
-                                '/directory/_layouts/',
-                                '/editdocs.aspx',
-                                '/Forms/AllItems.aspx',
-                                '/Forms/DispForm.aspx',
-                                '/Forms/DispForm.aspx?ID=1',
-                                '/Forms/EditForm.aspx',
-                                '/Forms/EditForm.aspx?ID=1',
-                                '/Forms/Forms/AllItems.aspx',
-                                '/forms/mod-view.aspx',
-                                '/Forms/mod-view.aspx',
-                                '/Forms/MyItems.aspx',
-                                '/forms/my-sub.aspx',
-                                '/Forms/my-sub.aspx',
-                                '/Forms/NewForm.aspx',
-                                '/forms/webfldr.aspx',
-'/_layouts/1033',
-                                '/_layouts/1033/IMAGES',
-                                '/_layouts/aclinv.aspx',
-                                '/_layouts/addrole.aspx',
+  '/allcomments.aspx',
+  '/allitems.aspx',
+  '/allposts.aspx',
+  'archive.aspx',
+  '/byauthor.aspx',
+  '/calendar.aspx',
+  '/_catalogs/',
+  '/_catalogs/lt/',
+  '/_catalogs/lt/forms/allitems.aspx',
+  '/_catalogs/lt/forms/dispform.aspx',
+  '/_catalogs/lt/forms/editform.aspx',
+  '/_catalogs/lt/forms/upload.aspx',
+  '/_catalogs/lt/forms/Allitems.aspx',
+  '/_catalogs/lt/forms/DispForm.aspx',
+  '/_catalogs/lt/forms/EditForm.aspx',
+  '/_catalogs/lt/forms/Upload.aspx',
+  '/_catalogs/lt/forms/_vti_cnf/allitems.aspx',
+  '/_catalogs/lt/forms/_vti_cnf/editform.aspx',
+  '/_catalogs/lt/forms/_vti_cnf/dispform.aspx',
+  '/_catalogs/lt/forms/_vti_cnf/upload.aspx',
+  '/_catalogs/lt/forms/_vti_cnf/AllItems.aspx',
+  '/_catalogs/lt/forms/_vti_cnf/EditForm.aspx',
+  '/_catalogs/lt/forms/_vti_cnf/DispForm.aspx',
+  '/_catalogs/lt/forms/_vti_cnf/Upload.aspx',
+  '/_catalogs/masterpage',
+  '/_catalogs/masterpage/Forms/AllItems.aspx',
+  '/_catalogs/wp/',
+  '/_catalogs/wp/mscontenteditor.dwp',
+  '/_catalogs/wp/msimage.dwp',
+  '/_catalogs/wp/msmembers.dwp',
+  '/_catalogs/wp/mspageviewer.dwp',
+  '/_catalogs/wp/mssimpleform.dwp',
+  '/_catalogs/wp/msxml.dwp',
+  '/_catalogs/wp/_vti_cnf/mscontenteditor.dwp',
+  '/_catalogs/wp/_vti_cnf/msimage.dwp',
+  '/_catalogs/wp/_vti_cnf/msmembers.dwp',
+  '/_catalogs/wp/_vti_cnf/mspageviewer.dwp',
+  '/_catalogs/wp/_vti_cnf/mssimpleform.dwp',
+  '/_catalogs/wp/_vti_cnf/msxml.dwp',
+  '/_catalogs/wp/forms/',
+  '/_catalogs/wp/Forms/AllItems.aspx',
+  '/_catalogs/wp/Forms/dispform.aspx',
+  '/_catalogs/wp/Forms/editform.aspx',
+  '/_catalogs/wp/Forms/upload.aspx',
+  '/_catalogs/wp/Forms/AllItems.aspx',
+  '/_catalogs/wp/Forms/DispForm.aspx',
+  '/_catalogs/wp/Forms/EditForm.aspx',
+  '/_catalogs/wp/Forms/Upload.aspx',
+  '/_catalogs/wp/forms/_vti_cnf/AllItems.aspx',
+  '/_catalogs/wp/forms/_vti_cnf/dispform.aspx',
+  '/_catalogs/wp/forms/_vti_cnf/editform.aspx',
+  '/_catalogs/wp/forms/_vti_cnf/upload.aspx',
+  '/_catalogs/wp/forms/_vti_cnf/AllItems.aspx',
+  '/_catalogs/wp/forms/_vti_cnf/DispForm.aspx',
+  '/_catalogs/wp/forms/_vti_cnf/EditForm.aspx',
+  '_catalogs/wp/forms/_vti_cnf/Upload.aspx',
+  '/_catalogs/wt/',
+  '/_catalogs/wt/Forms/allitems.aspx',
+  '/_catalogs/wt/Forms/common.aspx',
+  '/_catalogs/wt/Forms/dispform.aspx',
+  '/_catalogs/wt/Forms/editform.aspx',
+  '/_catalogs/wt/Forms/upload.aspx',
+  '/_catalogs/wt/Forms/AllItems.aspx',
+  '/_catalogs/wt/Forms/Common.aspx',
+  '/_catalogs/wt/Forms/DispForm.aspx',
+  '/_catalogs/wt/Forms/EditForm.aspx',
+  '/_catalogs/wt/Forms/Upload.aspx',
+  '/_catalogs/wt/Forms/_vti_cnf/allitems.aspx',
+  '/_catalogs/wt/Forms/_vti_cnf/common.aspx',
+  '/_catalogs/wt/Forms/_vti_cnf/dispform.aspx',
+  '/_catalogs/wt/Forms/_vti_cnf/editform.aspx',
+  '/_catalogs/wt/Forms/_vti_cnf/upload.aspx',
+  '/_catalogs/wt/Forms/_vti_cnf/AllItems.aspx',
+  '/_catalogs/wt/Forms/_vti_cnf/Common.aspx',
+  '/_catalogs/wt/Forms/_vti_cnf/DispForm.aspx',
+  '/_catalogs/wt/Forms/_vti_cnf/EditForm.aspx',
+  '/_catalogs/wt/Forms/_vti_cnf/Upload.aspx',
+  '/categories/allcategories.aspx',
+  '/categories/SOMEOTHERDIR/allcategories.aspx',
+  '/categories/viewcategory.aspx',
+  '/default.aspx',
+  '/directory/_layouts/',
+  '/editdocs.aspx',
+  '/Forms/AllItems.aspx',
+  '/Forms/DispForm.aspx',
+  '/Forms/DispForm.aspx?ID=1',
+  '/Forms/EditForm.aspx',
+  '/Forms/EditForm.aspx?ID=1',
+  '/Forms/Forms/AllItems.aspx',
+  '/forms/mod-view.aspx',
+  '/Forms/mod-view.aspx',
+  '/Forms/MyItems.aspx',
+  '/forms/my-sub.aspx',
+  '/Forms/my-sub.aspx',
+  '/Forms/NewForm.aspx',
+  '/forms/webfldr.aspx',
+  '/_layouts/1033',
+  '/_layouts/1033/IMAGES',
+  '/_layouts/aclinv.aspx',
+  '/_layouts/addrole.aspx',
                                 '/_layouts/AdminRecycleBin.aspx',
                                 '/_layouts/areanavigationsettings.aspx',
                                 '/_layouts/AreaTemplateSettings.aspx',
@@ -636,7 +598,7 @@ list = [
                                 '/servlet/org.apache.catalina.servlets.ManagerServlet',
                                 '/servlet/org.apache.catalina.servlets.SnoopAllServlet',
                                 '/servlet/org.apache.catalina.servlets.WebdavServlet/',
-                                '/tomcat-docs',
+                               '/tomcat-docs',
                                 '/webdav',
                                 '/webdav/index.html',
                                 '/webdav/servlet/org.apache.catalina.servlets.WebdavServlet/',
