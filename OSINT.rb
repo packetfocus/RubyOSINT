@@ -7,7 +7,7 @@ require 'uri'
 require 'net/http'
 require "net/https"
 #require 'colorize'
-
+#edit check
 class String
 def black;          "\033[30m#{self}\033[0m" end
 def red;            "\033[31m#{self}\033[0m" end
@@ -28,10 +28,6 @@ def bg_gray;        "\033[47m#{self}\033[0m" end
 def bold;           "\033[1m#{self}\033[22m" end
 def reverse_color;  "\033[7m#{self}\033[27m" end
 end
-
-
-
-
 
 # -----------------------------------------------------------------------------
 puts "Enter the Site to be tested"
@@ -123,30 +119,29 @@ list = [
  '/WEB-INF/classes/',
  '/shared/',
  '/shared/lib/',
-
 #general admin stuff
 '/robots.txt',
-                                '/crossdomain.xml',
-                                '/sitemap.xml',
-                                '/phpinfo.php',
-                                '/phpmyadmin',
-                                '/invoker/JMXInvokerServlet',   #jboss
-                                '/invoker',     #jboss
-                                '/invoker/EJBInvokerServlet',
-                                '/jmx-console', #jboss
-                                '/juddi',       #jboss
-                                '/web-console', #jboss
-                                '/web-console/invoker', #jboss
-                                '/.git/config', #exposed .git/config files
-                                '/.svn/entries',        #exposed svn entries
-                                '/.svn/wc.db',
-                                '/.svn:$i30:$INDEX_ALLOCATION/entries', #exposed svn entries nginx bypass
-                                '/.svn::$INDEX_ALLOCATION/entries',     #exposed svn entries nginx bypass
-                                '/.svn./entries',       #exposed svn entries nginx bypass
-                                '/CVS/Entries',         #Exposed cvs entries
-                                '/admin/index.jsp',
-                                '/admin/index.html',
-                                '/admin/index.php',
+'/crossdomain.xml',
+'/sitemap.xml',
+'/phpinfo.php',
+'/phpmyadmin',
+'/invoker/JMXInvokerServlet',   #jboss
+'/invoker',     #jboss
+'/invoker/EJBInvokerServlet',
+'/jmx-console', #jboss
+'/juddi',       #jboss
+'/web-console', #jboss
+'/web-console/invoker', #jboss
+'/.git/config', #exposed .git/config files
+'/.svn/entries',        #exposed svn entries
+'/.svn/wc.db',
+'/.svn:$i30:$INDEX_ALLOCATION/entries', #exposed svn entries nginx bypass
+'/.svn::$INDEX_ALLOCATION/entries',     #exposed svn entries nginx bypass
+'/.svn./entries',       #exposed svn entries nginx bypass
+'/CVS/Entries',         #Exposed cvs entries
+'/admin/index.jsp',
+'/admin/index.html',
+'/admin/index.php',
                                 '/admin/index.asp',
                                 '/admin/index.aspx',
                                 '/admin/',
