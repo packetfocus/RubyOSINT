@@ -871,7 +871,29 @@ list = [
   '/webdb/setup/index.php',
   '/mysqladmin/setup/index.php',
   '/mysql-admin/setup/index.php',
-
+#adding in some basic checks commonly found in nessus
+  '/_private',
+  '/_vti_log',
+  '/_vti_pvt',
+  '/cgi-bin',
+  '/test/',
+  '/test',
+  '/logfiles',
+  '/new',
+  '/user',
+  '/web',
+  '/portal',
+  '/Agents',
+  '/New',
+  '/admin',
+  '/Admin',
+  '/ADMIN',
+  '/a',
+  '/bin',
+  '/manual',
+  '/join',
+  '/global',
+  '/wwwjoin',
 ]
 # -----------------------------------------------------------------------------
 # -----------------------------------------------------------------------------
