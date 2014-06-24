@@ -125,7 +125,6 @@ list = [
  '/shared/lib/',
 #general admin stuff
 '/robots.txt',
-'/crossdomain.xml',
 '/sitemap.xml',
 '/phpinfo.php',
 '/phpmyadmin',
@@ -136,6 +135,7 @@ list = [
 '/juddi',    #jboss
 '/web-console', #jboss
 '/web-console/invoker', #jboss
+#git and SVN entries
 '/.git/config', #exposed .git/config files
 '/.svn/entries',     #exposed svn entries
 '/.svn/wc.db',
@@ -177,19 +177,13 @@ list = [
 '/axis2/axis2-admin/login',  #scanner/http/axis_login.rb
 '/axis2/axis2-web/HappyAxis.jsp',    #axis
 '/cgi-mod/view_help.cgi',    #scanner/http/barracuda_directory_traversal.rb
-'/bitweaver/',  #scanner/http/bitweaver_overlay_type_traversal.rb
-'/clansphere_2011.3/index.php', #scanner/http/clansphere_traversal.rb
 '/data/login',  #scanner/http/dell_idrac.rb
 '/WorkArea/login.aspx',      #scanner/http/ektron_cms400net.rb
 '/_vti_inf.html', #scanner/http/frontpage_login.rb
 '/en-US/account/login', #scanner/http/splunk_web_login.rb
 '/trace.axd',   #scanner/http/trace_axd.rb
 '/cpqlogin.htm', #CompaqHTTPServer
-'/hp/device/this.LCDispatcher', #HP Printer
-'/hmstat.htm', #Xerox priner
 '/SoundBridgeStatus.html', #roku
-'/eng/start/StatPtrGen.htm', #Kyocera printer
-'/cab/top.shtml',    #cannon printer
 '/DWREasyAjax/dwr/index.html',  #java servlets common from fuzzdb
 '/dwr/index.html',   #java servlets common from fuzzdb
 '/dwr/engine.js',    #java servlets common from fuzzdb
@@ -252,16 +246,9 @@ list = [
 '/xampp/',   #apache
 '/dashboard',
 '/index.php/login',
-'/AdaptCMS/admin.php', #AdaptCMS Lite
-'/port/crx',      #adobe CQ5
 '/port/system/console',
-'/alfresco/service/api/login?u=&pw=',   #alfresco
 '/default/live/user.html',   #apache Lenya
-'/iw/tsadmin',  #autonom Intetwoven Teamsite CMS
-'/bedita-app/admin',    #BEdita
-'/blosxom/blogs/admin', #blosxom
 '/login.act',   #cascade server
-'/dokuwiki?do=login',   #dokuwiki
 '/dotclear/admin/',  #dotclear
 '/cms',
 '/cms',
@@ -479,7 +466,7 @@ list = [
   '/_layouts/permsetup.aspx',
   '/_layouts/picker.aspx',
   '/_layouts/policy.aspx',
-'/_layouts/picker.aspx',
+  '/_layouts/picker.aspx',
   '/_layouts/policy.aspx',
   '/_layouts/policyconfig.aspx',
   '/_layouts/policycts.aspx',
@@ -520,7 +507,7 @@ list = [
   '/Lists/blog/AllItems.aspx',
   '/Lists/FAQs/',
   '/Lists/FAQs/AllItems.aspx',
-   '/Lists/Registration/',
+  '/Lists/Registration/',
   '/Lists/FAQs/',
   '/Lists/FAQs/AllItems.aspx',
   '/Lists/Registration/',
@@ -548,10 +535,10 @@ list = [
   '/sites/random%20crazy%20string',
   '/SSP/Admin/_layouts/viewscopesssp.aspx?mode=ssp',
   # VPN Checks
- "/+CSCOE+/logon.html",
- "/vpn/",
- "/oaam_server/oamLoginPage.jsp",
-#TOMCAT
+  "/+CSCOE+/logon.html",
+  "/vpn/",
+  "/oaam_server/oamLoginPage.jsp",
+  #TOMCAT
   '/admin',
   '/admin/',
   '/crossdomain.xml',
@@ -599,7 +586,7 @@ list = [
   '/servlet/org.apache.catalina.servlets.ManagerServlet',
   '/servlet/org.apache.catalina.servlets.SnoopAllServlet',
   '/servlet/org.apache.catalina.servlets.WebdavServlet/',
-    '/tomcat-docs',
+  '/tomcat-docs',
   '/webdav',
   '/webdav/index.html',
   '/webdav/servlet/org.apache.catalina.servlets.WebdavServlet/',
@@ -620,7 +607,7 @@ list = [
   '/Citrix/AccessPlatform/auth',
   '/Citrix/AccessPlatform/media',
 #PHPMYADMIN
- '/phpmyadmin/',
+  '/phpmyadmin/',
   '/phpMyAdmin/',
   '/PMA/',
   '/pma/',
@@ -648,7 +635,7 @@ list = [
   '/phpMyAdmin-2.6.0-alpha/',
   '/phpMyAdmin-2.6.0-alpha2/',
   '/phpMyAdmin-2.6.0-beta1/',
-'/phpMyAdmin-2.6.0-beta2/',
+  '/phpMyAdmin-2.6.0-beta2/',
   '/phpMyAdmin-2.6.0-rc1/',
   '/phpMyAdmin-2.6.0-rc2/',
   '/phpMyAdmin-2.6.0-rc3/',
@@ -690,7 +677,7 @@ list = [
   '/phpMyAdmin-2.8.0.2/',
   '/phpMyAdmin-2.8.0.3/',
   '/phpMyAdmin-2.8.0.4/',
-'/phpMyAdmin-2.8.1/',
+  '/phpMyAdmin-2.8.1/',
   '/phpMyAdmin-2.8.2/',
   '/phpMyAdmin-3.3.9.2/',
   '/sqlmanager/',
@@ -762,7 +749,7 @@ list = [
   '/phpMyAdmin-2.6.3-pl1/scripts/setup.php',
   '/phpMyAdmin-2.6.4-rc1/scripts/setup.php',
   '/phpMyAdmin-2.6.4-pl1/scripts/setup.php',
-'/phpMyAdmin-2.7.0-beta1/scripts/setup.php',
+  '/phpMyAdmin-2.7.0-beta1/scripts/setup.php',
   '/phpMyAdmin-2.7.0-rc1/scripts/setup.php',
   '/phpMyAdmin-2.7.0-pl1/scripts/setup.php',
   '/phpMyAdmin-2.7.0-pl2/scripts/setup.php',
@@ -804,7 +791,7 @@ list = [
   '/phpmyadmin2/setup/index.php',
   '/phpMyAdmin2/setup/index.php',
   '/phpMyAdmin-2/setup/index.php',
- '/phpMyAdmin-2.2.3/setup/index.php',
+  '/phpMyAdmin-2.2.3/setup/index.php',
   '/phpMyAdmin-2.2.6/setup/index.php',
   '/phpMyAdmin-2.5.1/setup/index.php',
   '/phpMyAdmin-2.5.4/setup/index.php',
