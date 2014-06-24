@@ -55,13 +55,25 @@ list = [
  '/admin/',
  '/upload/',
  '/controlpanel/',
+ '/+webvpn+/index.html',
+ '/+CSCOE+/blank.htnk',
+ '/+CSCOE+/logon.html?a=0',
 # OWA
- '/exchweb/bin/auth/owalogon.asp',
+  '/exchweb/bin/auth/owalogon.asp',
   '/exchweb/bin/auth/owaauth.dll', #OWA 2003
   '/owa/auth/owaauth.dll', #OWA2007
   '/owa/auth.owa', #OWA 2010
   '/owa/auth.owa', # OWA 2013
   '/exchange/', # check for OWA redirect
+  '/owa/auth/logon.aspx?url=',  # found some servers have to have this to find owa 2007
+  '/exchweb/bin/auth/usa/logon.asp',
+  '/owa',
+  '/owa/',
+  '/exchange',
+  '/exchweb',
+  '/exchweb/',
+  '/exchweb/bin/auth/owaauth.dll',
+  '/owa/ev.owa',
 #wordpress
  '/wp-login.php',
 #stats
@@ -889,6 +901,10 @@ list = [
   '/wwwjoin',
   '/interpostexpress/login/login.jsf',  #interpost email
   '/AirWatch/Login',  #airwatch portal
+  #citrix netscalar
+  '/login/do_login',
+  '/login/do_login/',
+  '/menu/neo',
 ]
 # -----------------------------------------------------------------------------
 # -----------------------------------------------------------------------------
