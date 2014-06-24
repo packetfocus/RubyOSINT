@@ -9,4 +9,18 @@ Plans:
 Add CLI arguments
 add files to hold the URLs 
 Clean up the code
+Add target input via file
+Add scan output to file
+Add analysis of app headers to identify version of SharePoint and OWA.
+
+Known Issues:
+Its currently broken when ran against sites that have invalid certs. Working to resolve this.
+
+Credits:
+Thanks to @CarnalOwnage for the ideas and some of the URL checks, and Alex Levinson for helping with some ruby foo.
+
+
+Updates:
+Added Color to the Command Line
+Added only reporting for 200 status (302 may be enabled by uncommenting it(be prepare for a lot of output).
 
