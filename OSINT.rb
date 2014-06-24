@@ -3,6 +3,8 @@
 # URL checker will perform OSINT using static URLs for known internet facing app
 # -----------------------------------------------------------------------------
 # RubyOSINT v1
+# Thanks to @carnalOwnage for the idea and some code. Also Alex for the Ruby foo.
+
 require 'uri'
 require 'net/http'
 require "net/https"
@@ -60,6 +62,10 @@ list = [
   '/owa/auth.owa', #OWA 2010
   '/owa/auth.owa', # OWA 2013
   '/exchange/', # check for OWA redirect
+#wordpress
+ '/wp-login.php',
+#stats
+ '/awstats',
 #tomcat
  '/robots.txt',
  '/admin',
@@ -894,6 +900,8 @@ list = [
   '/join',
   '/global',
   '/wwwjoin',
+  '/interpostexpress/login/login.jsf',  #interpost email
+  '/AirWatch/Login',  #airwatch portal
 ]
 # -----------------------------------------------------------------------------
 # -----------------------------------------------------------------------------
