@@ -16,8 +16,7 @@ Add threading with ability to be more stealthy if needed
 Add ability to set user agents
 Make the Checks/URLs more modular
 Add in ability to make default username and password checks
-
-
+Look into adding a percentage bar or something to show progress.
 
 Known Issues:
 Its currently broken when ran against sites that have invalid certs. Working to resolve this. (FIXED by [alanjones] : Pending verification)
