@@ -910,15 +910,17 @@ counter = 0
 puts "START GENERIC PORTAL CHECKS".bold.bg_gray.red
 uri = URI(site)
 list.each do |folder|
-  Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
-    http.verify_mode = OpenSSL::SSL::VERIFY_NONE if uri.scheme == 'https'
-    request = Net::HTTP::Get.new(File.join(uri.path, folder))
-    response = http.request(request)
-    if response.code == "200" #or response.code == "302"
+  http = Net::HTTP.new(uri.host,uri.port)
+  if uri.scheme == 'https'
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+  end
+  request = Net::HTTP::Get.new(File.join(uri.path, folder))
+  response = http.request(request)
+  if response.code == "200" #or response.code == "302"
     puts "#{File.join(uri.to_s,folder)} STATUS=#{response.code}".green + " PROTOCOL=#{uri.scheme}".red
-    else
+  else
     counter + 1 
-    end
-end
+  end
 end
 
