@@ -7,7 +7,7 @@ Enter the base URL to be attacked at the prompt. MUST enter http:// or https:// 
 
 Plans:
 Add CLI arguments
-add files to hold the URLs 
+Add files to hold the URLs 
 Clean up the code
 Add target input via file
 Add scan output to file
