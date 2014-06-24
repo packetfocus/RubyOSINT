@@ -12,12 +12,18 @@ Clean up the code
 Add target input via file
 Add scan output to file
 Add analysis of app headers to identify version of SharePoint and OWA.
+Add threading with ability to be more stealthy if needed
+Add ability to set user agents
+Make the Checks/URLs more modular
+Add in ability to make default username and password checks
+
+
 
 Known Issues:
-Its currently broken when ran against sites that have invalid certs. Working to resolve this.
+Its currently broken when ran against sites that have invalid certs. Working to resolve this. (FIXED by [alanjones] : Pending verification)
 
 Credits:
-Thanks to @CarnalOwnage for the ideas and some of the URL checks, and Alex Levinson for helping with some ruby foo.
+Thanks to @CarnalOwnage for the ideas and some of the URL checks, and @AlexLevinson for helping with some ruby foo.
 
 
 Updates:
