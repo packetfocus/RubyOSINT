@@ -8,15 +8,16 @@ This is a simple ruby based tool used for OSINT/PenTesting an application. The f
 
 
 ### TODO
-* Add CLI arguments
-* add files to hold the URLs 
-* Clean up the code
-* Add target input via file
+* Add CLI arguments (in progress)
+* add files to hold the URLs (complete)
+* Clean up the code (in progress)
+* Add target input via file 
 * Add scan output to file
 * Add analysis of app headers to identify version of SharePoint and OWA.
-
+* Ability to add in ports. Ex- 8080, 8443. 
 
 ### Known Issues
+* correcting issue with error after going to CLI based usage.
 
 ### Credits
 
