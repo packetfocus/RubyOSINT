@@ -16,8 +16,8 @@ Enter the base URL to be attacked at the prompt. MUST enter http:// or https:// 
 * Add scan output to file
 * Add analysis of app headers to identify version of SharePoint and OWA.
 
+
 ### Known Issues
-Its currently broken when ran against sites that have invalid certs. Working to resolve this.
 
 ### Credits
 
@@ -30,3 +30,6 @@ This code is licensed under the GPLv3. Full text of this can be found in ```LICE
 ### Changelog
 * Added Color to the Command Line
 * Added only reporting for 200 status (302 may be enabled by uncommenting it(be prepare for a lot of output).
+* fixed the SSL invalid certs breaking to tool (alanjones)
+* pulled the target URLs from the main .rb code and added to list.txt (alanjones)
+
