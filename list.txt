@@ -1,6 +1,8 @@
 /+CSCOE+/logon.html
 /vpn/
 /oaam_server/oamLoginPage.jsp
+/names.nsf?Login
+/names.nsf
 /login/
 /admin/
 /upload/
