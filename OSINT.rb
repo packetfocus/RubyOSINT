@@ -7,7 +7,8 @@
 
 require 'uri'
 require 'net/http'
-require "net/https"
+require 'net/https'
+require 'optparse'
 
 class String
   def black;    "\033[30m#{self}\033[0m" end
@@ -30,8 +31,41 @@ class String
   def reverse_color;  "\033[7m#{self}\033[27m" end
 end
 # -----------------------------------------------------------------------------
-puts "Enter the Site to be tested"
-site = ARGV[0]
+
+options = {}
+
+optparse = OptionParser.new do |opts|
+
+  opts.banner = "Usage: OSINT.rb --url URL --uri URIS"
+
+  options[:url] = nil
+  opts.on('--url URL','Website to test') do |url|
+    options[:url] = url
+  end
+
+  options[:uri] = nil
+  opts.on('--uri URIS','URIs to check') do |uri|
+    options[:uri] = uri
+  end
+
+  opts.on( '-h', '--help', 'Display this screen' ) do
+    puts opts
+    exit
+  end
+end
+optparse.parse!
+
+if options[:url].nil?
+  puts optparse
+  exit
+end
+
+if options[:uri].nil?
+  puts optparse
+  exit
+end
+
+site = options[:url]
 puts "The target domain in scope is:" +  " #{site} .".bold.blue
 puts " "
 puts "Dumping web server headers: ".bold.gray.bg_red
@@ -48,7 +82,7 @@ puts "Dumping web server headers: ".bold.gray.bg_red
 
 puts "START GENERIC PORTAL CHECKS".bold.bg_gray.red
 uri = URI(site)
-hostFileName = ARGV[1]
+hostFileName = options[:uri]
 hostFile = File.open(hostFileName,"r") { |file|
   # begin login to determine HTTP or HTTPS
   while (folder = file.gets)
