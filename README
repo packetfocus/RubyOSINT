@@ -1,0 +1,31 @@
+RubyOSINT v1
+
+Desc: This is a simple ruby based tool used for OSINT/PenTesting an application. The first version has static URL entries that are commonly attacked (PHPMyAdmin, VPN, Email, Citrix, etc.
+
+Usage: OSINT.rb
+Enter the base URL to be attacked at the prompt. MUST enter http:// or https:// or it will error out.
+
+Plans:
+Add CLI arguments
+Add files to hold the URLs 
+Clean up the code
+Add target input via file
+Add scan output to file
+Add analysis of app headers to identify version of SharePoint and OWA.
+Add threading with ability to be more stealthy if needed
+Add ability to set user agents
+Make the Checks/URLs more modular
+Add in ability to make default username and password checks
+Look into adding a percentage bar or something to show progress.
+
+Known Issues:
+Its currently broken when ran against sites that have invalid certs. Working to resolve this. (FIXED by [alanjones] : Pending verification)
+
+Credits:
+Thanks to @CarnalOwnage for the ideas and some of the URL checks, and @AlexLevinson for helping with some ruby foo.
+
+
+Updates:
+Added Color to the Command Line
+Added only reporting for 200 status (302 may be enabled by uncommenting it(be prepare for a lot of output).
+
