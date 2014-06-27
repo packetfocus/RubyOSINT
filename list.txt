@@ -231,12 +231,6 @@
 /Citrix/AccessPlatform
 /Citrix/AccessPlatform/auth
 /Citrix/AccessPlatform/media
-/exchweb/bin/auth/owalogon.asp
-/exchweb/bin/auth/owaauth.dll
-/owa/auth/owaauth.dll
-/owa/auth.owa
-/owa/auth.owa
-/exchange/
 /_vti_adm/Admin.asmx
 /_vti_bin/copy.asmx
 /_vti_bin/permissions.asmx
@@ -481,9 +475,9 @@ _catalogs/wp/forms/_vti_cnf/Upload.aspx
 /sitedirectory
 /sites/random%20crazy%20string
 /SSP/Admin/_layouts/viewscopesssp.aspx?mode=ssp
-/+CSCOE+/logon.htmlg
-/vpn/g
-/oaam_server/oamLoginPage.jspg
+/+CSCOE+/logon.html
+/vpn/
+/oaam_server/oamLoginPage.jsp
 /crossdomain.xml
 /sitemap.xml
 /examples
