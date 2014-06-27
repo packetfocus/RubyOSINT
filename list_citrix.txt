@@ -1,7 +1,0 @@
-/Citrix/MetFrame/
-/Citrix/MetaFrame/auth/login.aspx
-/Citrix/Xenapp
-/Citrix
-/Citrix/AccessPlatform
-/Citrix/AccessPlatform/auth
-/Citrix/AccessPlatform/media
