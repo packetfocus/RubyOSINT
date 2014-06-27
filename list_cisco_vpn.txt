@@ -1,6 +1,0 @@
-/+webvpn+/index.html
-/+CSCOE+/blank.htnk
-/+CSCOE+/logon.html?a=0
-/vpn/
-/sslvpn/
-/+CSCOE+/logon.html
