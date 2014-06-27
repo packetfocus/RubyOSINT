@@ -944,3 +944,7 @@ _catalogs/wp/forms/_vti_cnf/Upload.aspx
 /downloader/Maged/Model.php
 /downloader/Maged/View.php
 /downloader/Maged/Connect/Frontend.php
+/cgi-bin/supportLogin
+/cgi-bin/welcome
+/cgi-bin/supportLogin?portalName=VirtualOffice
+/cgi-bin/supportInstaller?CustFull=true

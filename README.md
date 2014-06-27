@@ -7,13 +7,14 @@ This is a simple ruby based tool used for OSINT/PenTesting an application. The f
 * OWA (2003-2010)
 * Citrix
 * Cisco VPN
-* Magneto ECOmmerce Software
+* Magneto ECommerce Software
 * PHPMyadmin
 * TomCat
 * Juniper VPNs
 * Sonicwall VPN
 * Various admin portal checks
 * Sharepoint
+* SonicWall Virtual Assistant  (added 6/27/2014)
 
 
 ### Usage
@@ -45,3 +46,4 @@ This code is licensed under the GPLv3. Full text of this can be found in ```LICE
 * fixed the SSL invalid certs breaking to tool (alanjones)
 * pulled the target URLs from the main .rb code and added to list.txt (alanjones)
 * added ability to call options from CLI. (alanjones)
+* added new support to list.txt. (Sonicwall, Magneto, various admin portals)
