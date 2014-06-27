@@ -1,4 +1,0 @@
-/cgi-bin/supportLogin
-/cgi-bin/welcome
-/cgi-bin/supportLogin?portalName=VirtualOffice
-/cgi-bin/supportInstaller?CustFull=true
