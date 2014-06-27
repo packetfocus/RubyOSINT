@@ -112,7 +112,7 @@ module OSINT
         end
         if new_path.scheme != @uri.scheme
           @uri.scheme = new_path.scheme
-          reconfigure_ssl
+          configure_ssl
         end
         request(new_path.request_uri, limit - 1)      
       else
