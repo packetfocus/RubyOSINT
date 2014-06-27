@@ -107,14 +107,18 @@ module OSINT
       end
       if [ "302", "301"].include? response.code
         new_path = URI.parse(response.header['location'])
-        if new_path.host != @uri.host
+        if !new_path.host.nil? && new_path.host != @uri.host
           @uri.host = new_path.host
         end
-        if new_path.scheme != @uri.scheme
+        if !new_path.scheme.nil? && new_path.scheme != @uri.scheme
           @uri.scheme = new_path.scheme
           configure_ssl
         end
-        request(new_path.request_uri, limit - 1)      
+        if !new_path.respond_to? :request_uri
+          request(new_path.to_s, limit - 1)
+        else
+          request(new_path.request_uri, limit - 1)      
+        end        
       else
         return response, path
       end
@@ -151,14 +155,20 @@ site.search("/", :head) do |response, path|
 end
 # -----------------------------------------------------------------------------
 puts ""
-puts "START GENERIC PORTAL CHECKS".bold.red
+puts "START PATH CHECKS".bold.red
 puts ""
 # -----------------------------------------------------------------------------
 site.search(list) do |response, path|
-  if options[:debug]
-    puts "[ #{response.code.green} - #{site.uri.scheme.red} ] #{File.join(site.uri.to_s, path)}"
-  elsif !response.nil? and response.code == "200"
-    "[ #{response.code.green} - #{site.uri.scheme.red} ] #{File.join(site.uri.to_s, path)}"
+  if options[:debug] == true
+    puts "[ #{response.code.green} ] #{File.join(site.uri.to_s, path)}"
+  else
+    if response.respond_to? :code
+      if [ "200" , "500" , "400" ].include? response.code
+        puts "[ #{response.code.green} ] #{File.join(site.uri.to_s, path)}"
+      end
+    else
+      abort "[!] Fatal: Response object did not respond to :code method."
+    end        
   end
 end 
 # -----------------------------------------------------------------------------
