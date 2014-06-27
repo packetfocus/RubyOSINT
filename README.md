@@ -1,7 +1,7 @@
-## RubyOSINT v1
+## RubyOSINT v1.2 
 
 ### Description
-This is a simple ruby based tool used for OSINT/PenTesting an application. The first version has static URL entries that are commonly attacked (PHPMyAdmin, VPN, Email, Citrix, etc.)
+This is a simple ruby based tool used for OSINT/PenTesting an application. The first version has static URL entries that are commonly attacked (PHPMyAdmin, VPN, Email, Citrix, etc.)  And, to be technical its more enumeration or active recon.. moving right along..
 
 ###Supported Targets
 * OWA (2003-2010)
