@@ -18,7 +18,7 @@ This is a simple ruby based tool used for OSINT/PenTesting an application. The f
 
 
 ### Usage
-```ruby OSINT.rb --url http(s)://xxx.xxx.xxx.xxx --uri list.txt```
+```ruby OSINT.rb --url http(s)://xxx.xxx.xxx.xxx --uri /lists/list.txt```
 
 
 ### TODO
