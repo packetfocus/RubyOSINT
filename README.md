@@ -1,20 +1,32 @@
 ## RubyOSINT v1
 
 ### Description
-This is a simple ruby based tool used for OSINT/PenTesting an application. The first version has static URL entries that are commonly attacked (PHPMyAdmin, VPN, Email, Citrix, etc.
+This is a simple ruby based tool used for OSINT/PenTesting an application. The first version has static URL entries that are commonly attacked (PHPMyAdmin, VPN, Email, Citrix, etc.)
+
+###Supported Targets
+* OWA (2003-2010)
+* Citrix
+* Cisco VPN
+* Magneto ECOmmerce Software
+* PHPMyadmin
+* TomCat
+* Juniper VPNs
+* Sonicwall VPN
+* Various admin portal checks
+* Sharepoint
+
 
 ### Usage
 ```ruby OSINT.rb --url http(s)://xxx.xxx.xxx.xxx --uri list.txt```
 
 
 ### TODO
-* Add CLI arguments (in progress)
-* add files to hold the URLs (complete)
 * Clean up the code (in progress)
 * Add target input via file 
 * Add scan output to file
 * Add analysis of app headers to identify version of SharePoint and OWA.
 * Ability to add in ports. Ex- 8080, 8443. 
+* add threading
 
 ### Known Issues
 * correcting issue with error after going to CLI based usage.
