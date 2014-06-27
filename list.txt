@@ -4,7 +4,6 @@
 /names.nsf?Login
 /names.nsf
 /login/
-/admin/
 /upload/
 /controlpanel/
 /+webvpn+/index.html
@@ -122,7 +121,6 @@
 /administrator/login.php
 /administrator/login.html
 /names.nsf
-/auth.html
 /crowd/services
 /owa/auth/logon.aspx
 /exchange/
@@ -202,7 +200,6 @@
 /default/live/user.html
 /login.act
 /dotclear/admin/
-/cms
 /cms
 /joomla/administrator
 /Secure/Login.aspx
@@ -948,3 +945,5 @@ _catalogs/wp/forms/_vti_cnf/Upload.aspx
 /cgi-bin/welcome
 /cgi-bin/supportLogin?portalName=VirtualOffice
 /cgi-bin/supportInstaller?CustFull=true
+/auth.html
+/sslvpnLogin.html

@@ -30,7 +30,6 @@ This is a simple ruby based tool used for OSINT/PenTesting an application. The f
 * add threading
 
 ### Known Issues
-* correcting issue with error after going to CLI based usage.
 
 ### Credits
 
@@ -47,3 +46,4 @@ This code is licensed under the GPLv3. Full text of this can be found in ```LICE
 * pulled the target URLs from the main .rb code and added to list.txt (alanjones)
 * added ability to call options from CLI. (alanjones)
 * added new support to list.txt. (Sonicwall, Magneto, various admin portals)
+* Split out URL checks into individual text documents to make more modular, and environment  specific as needed.
