@@ -55,12 +55,7 @@ optparse = OptionParser.new do |opts|
 end
 optparse.parse!
 
-if options[:url].nil?
-  puts optparse
-  exit
-end
-
-if options[:uri].nil?
+if options[:url].nil? or options[:uri].nil?
   puts optparse
   exit
 end
@@ -93,7 +88,7 @@ hostFile = File.open(hostFileName,"r") { |file|
     end
     request = Net::HTTP::Get.new(File.join(uri.path, folder))
     response = http.request(request)
-    if response.code == "200" #or response.code == "302"
+    if response.code == "200" # or response.code == "302"
       puts "#{File.join(uri.to_s,folder)} STATUS=#{response.code}".green + " PROTOCOL=#{uri.scheme}".red
     end
   end
