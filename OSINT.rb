@@ -78,6 +78,7 @@ module OSINT
       @ssl = { :use_ssl => (@uri.scheme == 'https') }
       if @ssl[:use_ssl]
         @ssl[:verify_mode] = OpenSSL::SSL::VERIFY_NONE
+        @ssl[:ssl_version] = 'SSLv23'
       end      
     end
 
@@ -86,6 +87,7 @@ module OSINT
       @ssl = { :use_ssl => (@uri.scheme == 'https') }
       if @ssl[:use_ssl]
         @ssl[:verify_mode] = OpenSSL::SSL::VERIFY_NONE
+        @ssl[:ssl_version] = 'SSLv23'
       end
     end      
 
@@ -113,6 +115,7 @@ module OSINT
         end
         if !new_path.scheme.nil? && new_path.scheme != @uri.scheme
           @uri.scheme = new_path.scheme
+          @uri.port = new_path.port
           configure_ssl
         end
         if !new_path.respond_to? :request_uri
