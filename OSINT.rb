@@ -75,21 +75,17 @@ module OSINT
 
     def initialize(url)
       @uri = URI.parse(url)
-      @ssl = { :use_ssl => (@uri.scheme == 'https') }
-      if @ssl[:use_ssl]
-        @ssl[:verify_mode] = OpenSSL::SSL::VERIFY_NONE
-        @ssl[:ssl_version] = 'SSLv23'
-      end      
+      configure_ssl
     end
 
     def configure_ssl
-      @ssl = nil
       @ssl = { :use_ssl => (@uri.scheme == 'https') }
+
       if @ssl[:use_ssl]
         @ssl[:verify_mode] = OpenSSL::SSL::VERIFY_NONE
         @ssl[:ssl_version] = 'SSLv23'
       end
-    end      
+    end
 
     def to_s
       @uri.to_s
@@ -101,47 +97,38 @@ module OSINT
 
     def request(path, limit=5, method=:get)
       raise ArgumentError, 'HTTP Redirect Loop Detected' if limit == 0
+
       response = Net::HTTP.start(@uri.host, @uri.port, @ssl) do |http|
         http.send(method, path)
       end
+
       if response.nil?
         puts "Failure in response."
         exit 1
       end
-      if [ "302", "301"].include? response.code
+
+      redirected = ['301', '302'].include? response.code
+
+      if redirected
         new_path = URI.parse(response.header['location'])
-        if !new_path.host.nil? && new_path.host != @uri.host
-          @uri.host = new_path.host
-        end
-        if !new_path.scheme.nil? && new_path.scheme != @uri.scheme
+        @uri.host = new_path.host if new_path.host
+
+        if new_path.scheme && new_path.scheme != @uri.scheme
           @uri.scheme = new_path.scheme
           @uri.port = new_path.port
           configure_ssl
         end
-        if !new_path.respond_to? :request_uri
-          request(new_path.to_s, limit - 1)
-        else
-          request(new_path.request_uri, limit - 1)      
-        end        
+
+        method = new_path.respond_to?(:request_uri) ? :request_uri : :to_s
+        request(new_path.send(method), limit - 1)
       else
         return response, path
       end
     end
 
     def search(path, method=:get)
-      if block_given?
-        if path.is_a? Array
-          path.each do |p|
-            yield request(full_uri(p), 5, method)
-          end
-        elsif path.is_a? String
-          yield request(full_uri(path), 5, method)
-        else
-          yield nil
-        end
-      else
-        return request(get(path), 5, method)
-      end
+      return request(get(path), 5, method) unless block_given?
+      Array(path).each { |p| yield request(full_uri(p), 5, method) }
     end
   end
 end
