@@ -2,7 +2,6 @@
 /exchweb/bin/auth/owaauth.dll
 /owa/auth/owaauth.dll
 /owa/auth.owa
-/owa/auth.owa
 /exchange/
 /owa/auth/logon.aspx?url=
 /exchweb/bin/auth/usa/logon.asp
@@ -13,3 +12,6 @@
 /exchweb/
 /exchweb/bin/auth/owaauth.dll
 /owa/ev.owa
+/CookieAuth.dll?GetLogon?curl=Z2FowaZ2F&reason=0&formdir=1
+/CookieAuth.dll
+/CookieAuth.dll?GetLogon
