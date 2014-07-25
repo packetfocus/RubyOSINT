@@ -1,3 +1,6 @@
+/CookieAuth.dll?GetLogon?curl=Z2FowaZ2F&reason=0&formdir=1
+/CookieAuth.dll
+/CookieAuth.dll?GetLogon
 /+CSCOE+/logon.html
 /vpn/
 /oaam_server/oamLoginPage.jsp
