@@ -154,7 +154,7 @@ site.search(list) do |response, path|
     puts "[ #{response.code.green} ] #{File.join(site.uri.to_s, path)}"
   else
     if response.respond_to? :code
-      if [ "200" , "500" , "400" ].include? response.code
+      if [ "200" , "400" ].include? response.code
         puts "[ #{response.code.green} ] #{File.join(site.uri.to_s, path)}"
       end
     else
