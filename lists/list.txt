@@ -1,3 +1,11 @@
+trace.axd
+Trace.axd
+Trace.axd?id=
+Trace.axd?id=1
+Trace.axd?id=2
+Trace.axd?id=3
+Trace.axd?id=4
+Trace.axd?id=5
 /CookieAuth.dll?GetLogon?curl=Z2FowaZ2F&reason=0&formdir=1
 /CookieAuth.dll
 /CookieAuth.dll?GetLogon
