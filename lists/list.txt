@@ -1,3 +1,6 @@
+/scripts/trace.axd
+/images/Trace.axd
+/scripts/Trace.axd?id=1
 /app/Trace.axd
 /app/Trace.axd?id=
 /app/Trace.axd?id=1
