@@ -1,3 +1,5 @@
+/solr/
+/solr/admin/
 /admin-console/login.seam
 /admin-console/
 /admin-console
