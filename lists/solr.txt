@@ -1,0 +1,15 @@
+/solr
+/solr/admin
+/solr/admin/file?
+/solr/admin/file/?file=schema.xml
+/solr/admin/file/?file=solrconfig.xml
+/solr/admin/analysis.jsp?highlight=on
+/solr/admin/schema.jsp
+/solr/admin/stats.jsp
+/solr/admin/registry.jsp
+/solr/admin/distributiondump.jsp
+/solr/admin/ping
+/solr/admin/logging
+/solr/admin/get-properties.jsp
+/solr/admin/threaddump.jsp
+/solr/admin/form.jsp
