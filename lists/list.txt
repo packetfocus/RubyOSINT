@@ -1,3 +1,5 @@
+/zabbix/srv_status.php
+/zabbix/srv_status.php?period=%27+convert%28int,convert%28varchar,0x7b5d%29%29+%27
 /zabbix/httpmon.php
 /zabbix/
 /overview.php
