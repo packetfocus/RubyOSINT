@@ -1,3 +1,4 @@
+/zabbix/httpmon.php
 /zabbix/
 /overview.php
 /puppet/ca
