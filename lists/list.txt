@@ -1,3 +1,8 @@
+/zabbix/
+/overview.php
+/puppet/ca
+/puppet/
+/solr/admin/get-properties.jsp
 /solr/
 /solr/admin/
 /admin-console/login.seam
