@@ -1,3 +1,11 @@
+/wp-content/themes/rt_quantive_wp/style.css
+/wp-admin/media-upload.php
+/wp-admin/includes/class-wp-posts-list-table.php
+/wp-content/uploads/
+/data/personel/
+/apc.php
+/wp-login.php
+/wp-admin/wp-config.conf
 /solr/admin/file?
 /solr/admin/file/?file=schema.xml
 /solr/admin/file/?file=solrconfig.xml
