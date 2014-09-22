@@ -1,3 +1,4 @@
+/admin/login.php
 /wp-content/themes/rt_quantive_wp/style.css
 /wp-admin/media-upload.php
 /wp-admin/includes/class-wp-posts-list-table.php
