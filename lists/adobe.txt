@@ -1,0 +1,11 @@
+/system/login?ldap-auth=true&next=/system/login&set-lang=en
+/system/login?next=/admin&set-lang=en
+/connect/
+/loginPage/
+/system/
+/system/help/
+/common/
+/system/login?domain
+/system/login?
+/system/login/ok?next=%2Fsystem%2Flogin%3Fdomain&set-lang=en
+/system/login?ldap-auth=true&next=/admin/home&set-lang=en
