@@ -1,3 +1,15 @@
+/wp/.git/config
+/logon/.git/config
+/adm/.git/config
+/private/.git/config
+/a/.git/config
+/config/.git/config
+/base/.git/config
+/.git/
+/git/
+/admin/.git/config
+/.git/config
+/git/.git/config
 /system/login?ldap-auth=true&next=/system/login&set-lang=en
 /system/login?next=/admin&set-lang=en
 /connect/

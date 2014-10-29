@@ -1,0 +1,12 @@
+/wp/.git/config
+/logon/.git/config
+/adm/.git/config
+/private/.git/config
+/a/.git/config
+/config/.git/config
+/base/.git/config
+/.git/
+/git/
+/admin/.git/config
+/.git/config
+/git/.git/config
